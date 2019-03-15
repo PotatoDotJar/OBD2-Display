@@ -6,15 +6,11 @@
 *************************************************************************/
 
 #include <Arduino.h>
-#include <SoftwareSerial.h>
 
 #define OBD_TIMEOUT_SHORT 1000 /* ms */
 #define OBD_TIMEOUT_LONG 10000 /* ms */
 
-extern SoftwareSerial obdSerialPort;
-#define OBDUART obdSerialPort
-
-/* #ifndef OBDUART
+#ifndef OBDUART
 #if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168P__)
 #define OBDUART Serial
 #else
@@ -23,8 +19,8 @@ extern SoftwareSerial obdSerialPort;
 #endif
 
 #ifdef ESP32
-extern HardwareSerial Serial1;
-#endif */
+	extern HardwareSerial Serial1;
+#endif
 
 // Mode 1 PIDs
 #define PID_ENGINE_LOAD 0x04
