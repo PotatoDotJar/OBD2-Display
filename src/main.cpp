@@ -38,6 +38,13 @@ void setup() {
 // Parameters
 int Engine_RPM;
 int Throttle_Pos;
+int Engine_Load;
+int Coolent_Temp;
+int Oil_Temp;
+int Fuel_Level;
+int Fuel_Pressure;
+int Air_Flow;
+int Speed_KPH;
 int16_t acc[3] = {0};
 int16_t gyro[3] = {0};
 int16_t mag[3] = {0};
@@ -45,30 +52,44 @@ float yaw, pitch, roll;
 
 void loop() {
 
-  // RPM Output
-  if(obd.readPID(PID_RPM, Engine_RPM))
-  {
-    Serial.print("RPM:");
-    Serial.println(Engine_RPM);
-  }
-
-  // Throttle Position
-  if(obd.readPID(PID_THROTTLE, Throttle_Pos))
-  {
-    Serial.print(" TP:");
-    Serial.println(Throttle_Pos);
-  }
-
   if (!obd.memsRead(acc, gyro, mag)) return;
 
-  if (obd.memsOrientation(yaw, pitch, roll)) {
-    Serial.print(" Orientation: ");
-    Serial.print(yaw, 2);
-    Serial.print('/');
-    Serial.print(pitch, 2);
-    Serial.print('/');
-    Serial.println(roll, 2);
-  }
+  if (obd.readPID(PID_RPM, Engine_RPM) 
+    && obd.readPID(PID_SPEED, Speed_KPH)
+    && obd.readPID(PID_THROTTLE, Throttle_Pos)
+    && obd.readPID(PID_ENGINE_LOAD, Engine_Load)
+    && obd.readPID(PID_COOLANT_TEMP, Coolent_Temp)
+    && obd.readPID(PID_FUEL_LEVEL, Fuel_Level)
+
+    ) {
+
+    Serial.print("RPM:");
+    Serial.print(Engine_RPM);
+
+    Serial.print("\tSpeed(MPH):");
+    Serial.print(Speed_KPH / 1.609);
+
+    Serial.print("\tCoolnt Tmp(°C):");
+    Serial.print(Coolent_Temp);
+
+    Serial.print("\tThrot_Pos(%):");
+    Serial.print(Throttle_Pos);
+
+    Serial.print("\tLoad(%):");
+    Serial.print(Engine_Load);
+
+    Serial.print("\tFuel(%):");
+    Serial.print(Fuel_Level);
+
+    if (obd.memsOrientation(yaw, pitch, roll)) {
+      Serial.print("\tOrientation: ");
+      Serial.print(yaw, 2);
+      Serial.print('/');
+      Serial.print(pitch, 2);
+      Serial.print('/');
+      Serial.println(roll, 2);
+    }
+    }
 
   delay(50);
 }
