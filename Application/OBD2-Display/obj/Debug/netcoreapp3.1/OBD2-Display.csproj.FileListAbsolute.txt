@@ -28,3 +28,4 @@ C:\Users\RJ\gitPersonal\OBD2-Display\Application\OBD2-Display\bin\Debug\netcorea
 C:\Users\RJ\gitPersonal\OBD2-Display\Application\OBD2-Display\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\RJ\gitPersonal\OBD2-Display\Application\OBD2-Display\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\RJ\gitPersonal\OBD2-Display\Application\OBD2-Display\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\OBD2-Display\bin\Debug\netcoreapp3.1\MathNet.Numerics.dll

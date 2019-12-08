@@ -58,8 +58,8 @@ namespace OBD2_Display
             series = new Series
             {
                 Name = "Series",
-                Color = Color.Green,
-                IsVisibleInLegend = true,
+                Color = Color.Aqua,
+                IsVisibleInLegend = false,
                 IsXValueIndexed = true,
                 BorderWidth = 3,
                 ChartType = SeriesChartType.Line
@@ -73,9 +73,9 @@ namespace OBD2_Display
 
         private void maxPointsSelector_ValueChanged(object sender, EventArgs e)
         {
-            var sendr = (NumericUpDown) sender;
+            var value = (int) ((NumericUpDown)sender).Value;
 
-            //max sendr.Value
+            serialHandler.maxPoints = value;
         }
     }
 }

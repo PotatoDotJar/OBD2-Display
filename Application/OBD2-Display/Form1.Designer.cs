@@ -30,6 +30,10 @@
         {
             this.maxPointsSelector = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelPtCount = new System.Windows.Forms.Label();
+            this.ptCount = new System.Windows.Forms.Label();
+            this.labelAvg = new System.Windows.Forms.Label();
+            this.avg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.maxPointsSelector)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,17 +75,57 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Max Points";
             // 
+            // labelPtCount
+            // 
+            this.labelPtCount.AutoSize = true;
+            this.labelPtCount.Location = new System.Drawing.Point(322, 13);
+            this.labelPtCount.Name = "labelPtCount";
+            this.labelPtCount.Size = new System.Drawing.Size(109, 25);
+            this.labelPtCount.TabIndex = 2;
+            this.labelPtCount.Text = "Point Count:";
+            // 
+            // ptCount
+            // 
+            this.ptCount.AutoSize = true;
+            this.ptCount.Location = new System.Drawing.Point(428, 13);
+            this.ptCount.Name = "ptCount";
+            this.ptCount.Size = new System.Drawing.Size(44, 25);
+            this.ptCount.TabIndex = 3;
+            this.ptCount.Text = "N/A";
+            // 
+            // labelAvg
+            // 
+            this.labelAvg.AutoSize = true;
+            this.labelAvg.Location = new System.Drawing.Point(614, 13);
+            this.labelAvg.Name = "labelAvg";
+            this.labelAvg.Size = new System.Drawing.Size(81, 25);
+            this.labelAvg.TabIndex = 2;
+            this.labelAvg.Text = "Average:";
+            // 
+            // avg
+            // 
+            this.avg.AutoSize = true;
+            this.avg.Location = new System.Drawing.Point(701, 13);
+            this.avg.Name = "avg";
+            this.avg.Size = new System.Drawing.Size(44, 25);
+            this.avg.TabIndex = 3;
+            this.avg.Text = "N/A";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1258, 664);
+            this.Controls.Add(this.avg);
+            this.Controls.Add(this.labelAvg);
+            this.Controls.Add(this.ptCount);
+            this.Controls.Add(this.labelPtCount);
             this.Controls.Add(this.maxPointsSelector);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "OBD2 Display - Beta";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.maxPointsSelector)).EndInit();
@@ -94,6 +138,10 @@
 
         internal System.Windows.Forms.NumericUpDown maxPointsSelector;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPtCount;
+        public System.Windows.Forms.Label ptCount;
+        private System.Windows.Forms.Label labelAvg;
+        public System.Windows.Forms.Label avg;
     }
 }
 

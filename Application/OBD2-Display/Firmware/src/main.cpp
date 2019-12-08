@@ -10,11 +10,11 @@ void setup()
 void loop()
 {
 	StaticJsonDocument<200> doc;
-	doc["time"].set<long>(millis());
+	doc["time"].set<float>((float) millis() / (float)1000);
 	doc["rpm"].set<int>(analogRead(A0));
 
 	serializeJson(doc, Serial);
 	Serial.println();
 
-	delay(100);
+	delay(10);
 }
