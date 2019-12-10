@@ -22,11 +22,8 @@ namespace OBD2_Display
         {
             InitializeComponent();
 
-
-
             serialHandler = new SerialHandler(this, "COM4", 115200);
             serialHandler.Start();
-
         }
 
         private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
@@ -41,11 +38,11 @@ namespace OBD2_Display
             chart = new Chart();
             ((ISupportInitialize)(chart)).BeginInit();
 
-            chartArea.Name = "ChartArea1";
+            chartArea.Name = "ChartArea";
             chart.ChartAreas.Add(chartArea);
             chart.Dock = DockStyle.Bottom;
 
-            legend.Name = "Legend1";
+            legend.Name = "Legend";
             chart.Legends.Add(legend);
             chart.Location = new Point(0, 0);
             chart.Name = "chart";

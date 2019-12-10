@@ -91,9 +91,9 @@ namespace OBD2_Display
 
                                 var cs = CubicSpline.InterpolateNatural(xPts, yPts);
 
-                                var x = new DenseVector(15);
-                                var y = new DenseVector(x.Count);
-                                var dydx = new DenseVector(x.Count);
+                                var x = new List<double>(15);
+                                var y = new List<double>(x.Count);
+                                var dydx = new List<double>(x.Count);
                                 for (int i = 0; i < x.Count; i++)
                                 {
                                     x[i] = (4.0 * i) / (x.Count - 1);
