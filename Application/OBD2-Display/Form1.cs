@@ -15,7 +15,6 @@ namespace OBD2_Display
     {
 
         public SerialHandler serialHandler;
-        public Series series;
         public Chart chart;
 
         public Form1()
@@ -52,16 +51,27 @@ namespace OBD2_Display
 
 
             chart.Series.Clear();
-            series = new Series
+            Series series1 = new Series
             {
-                Name = "Series",
-                Color = Color.Aqua,
+                Name = "Light",
+                Color = Color.Yellow,
                 IsVisibleInLegend = false,
                 IsXValueIndexed = true,
                 BorderWidth = 3,
                 ChartType = SeriesChartType.Line
             };
-            chart.Series.Add(series);
+            chart.Series.Add(series1);
+
+            Series series2 = new Series
+            {
+                Name = "ChangeInLight",
+                Color = Color.Red,
+                IsVisibleInLegend = false,
+                IsXValueIndexed = true,
+                BorderWidth = 2,
+                ChartType = SeriesChartType.Line
+            };
+            chart.Series.Add(series2);
 
             chart.Invalidate();
 
@@ -71,7 +81,6 @@ namespace OBD2_Display
         private void maxPointsSelector_ValueChanged(object sender, EventArgs e)
         {
             var value = (int) ((NumericUpDown)sender).Value;
-
             serialHandler.maxPoints = value;
         }
     }

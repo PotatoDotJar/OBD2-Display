@@ -32,8 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelPtCount = new System.Windows.Forms.Label();
             this.ptCount = new System.Windows.Forms.Label();
-            this.labelAvg = new System.Windows.Forms.Label();
-            this.avg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.maxPointsSelector)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,31 +91,11 @@
             this.ptCount.TabIndex = 3;
             this.ptCount.Text = "N/A";
             // 
-            // labelAvg
-            // 
-            this.labelAvg.AutoSize = true;
-            this.labelAvg.Location = new System.Drawing.Point(614, 13);
-            this.labelAvg.Name = "labelAvg";
-            this.labelAvg.Size = new System.Drawing.Size(81, 25);
-            this.labelAvg.TabIndex = 2;
-            this.labelAvg.Text = "Average:";
-            // 
-            // avg
-            // 
-            this.avg.AutoSize = true;
-            this.avg.Location = new System.Drawing.Point(701, 13);
-            this.avg.Name = "avg";
-            this.avg.Size = new System.Drawing.Size(44, 25);
-            this.avg.TabIndex = 3;
-            this.avg.Text = "N/A";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1258, 664);
-            this.Controls.Add(this.avg);
-            this.Controls.Add(this.labelAvg);
             this.Controls.Add(this.ptCount);
             this.Controls.Add(this.labelPtCount);
             this.Controls.Add(this.maxPointsSelector);
@@ -140,8 +118,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelPtCount;
         public System.Windows.Forms.Label ptCount;
-        private System.Windows.Forms.Label labelAvg;
-        public System.Windows.Forms.Label avg;
     }
 }
 

@@ -1,5 +1,5 @@
 ﻿using MathNet.Numerics.Interpolation;
-using MathNet.Numerics.LinearAlgebra.Complex;
+using MathNet.Numerics.LinearAlgebra.Double;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -37,86 +37,113 @@ namespace OBD2_Display
 
         public void ReadPort()
         {
-            serialPort.ReadLine();  // Read first line to purge stream
+
             while (readActive)
             {
-                try
+
+                if (serialPort.BytesToRead > 0)
                 {
-                    string message = serialPort.ReadLine();
-
-                    // Deserializing JSON data
-                    var jsonModel = JsonConvert.DeserializeObject<TestData>(message);
-
-                    // Thread safe
                     try
                     {
-                        form.Invoke(new Action(() =>
+                        string message = serialPort.ReadLine();
+                        
+                        // Thread safe
+                        try
                         {
-                            form.series.Points.AddXY(Math.Round(jsonModel.Time, 2), jsonModel.RPM);
+                            // Deserializing JSON data
+                            var jsonModel = JsonConvert.DeserializeObject<TestData>(message);
 
-                            // Remove Points overflow; added to handle maxPoints change
-                            while (form.series.Points.Count - maxPoints >= 1)
+                            form.Invoke(new Action(() =>
                             {
-                                form.series.Points.RemoveAt(0);
-                            }
-
-                            form.chart.ChartAreas[0].RecalculateAxesScale();
-
-                            // Label Updates
-                            form.ptCount.Text = form.series.Points.Count.ToString() + " points";
+                                var series1 = form.chart.Series[0];
+                                var series2 = form.chart.Series[1];
 
 
-                            // Average Value
-                            double total = 0;
-                            foreach (var pt in form.series.Points)
-                            {
-                                total += pt.YValues[0];
-                            }
+                                series1.Points.AddXY(Math.Round(jsonModel.Time, 2), jsonModel.RPM);
 
-                            form.avg.Text = Math.Round((total / form.series.Points.Count), 3).ToString();
-
-                            if (form.series.Points.Count >= 2)
-                            {
-                                // Testing some stuff I learned in calculus 1
-                                var xPts = new List<double>();
-                                var yPts = new List<double>();
-
-                                var points = form.series.Points;
-
-                                foreach (var pt in points)
+                                // Remove Points overflow; added to handle maxPoints change
+                                while (series1.Points.Count - maxPoints >= 1)
                                 {
-                                    xPts.Add(pt.XValue);
-                                    yPts.Add(pt.YValues[0]);
+                                    series1.Points.RemoveAt(0);
                                 }
 
-                                var cs = CubicSpline.InterpolateNatural(xPts, yPts);
+                                // Label Updates
+                                form.ptCount.Text = series1.Points.Count.ToString() + " points";
 
-                                var x = new List<double>(15);
-                                var y = new List<double>(x.Count);
-                                var dydx = new List<double>(x.Count);
-                                for (int i = 0; i < x.Count; i++)
+
+                                if (series1.Points.Count >= 2)
                                 {
-                                    x[i] = (4.0 * i) / (x.Count - 1);
-                                    y[i] = cs.Interpolate(x[i]);
-                                    dydx[i] = cs.Differentiate(x[i]);
+                                    // Testing some stuff I learned in calculus 1
+                                    var xPtsList = new List<double>();
+                                    var yPtsList = new List<double>();
+
+                                    var points = series1.Points;
+
+                                    foreach (var pt in points)
+                                    {
+                                        xPtsList.Add(pt.XValue);
+                                        yPtsList.Add(pt.YValues[0]);
+                                    }
+
+                                    // Testing some stuff I learned in calculus 1
+                                    var xPts = new DenseVector(xPtsList.ToArray());
+                                    var yPts = new DenseVector(yPtsList.ToArray());
+
+
+                                    var cs = CubicSpline.InterpolateNatural(xPts, yPts);
+
+
+                                    series2.Points.AddXY(Math.Round(jsonModel.Time, 2), cs.Differentiate(Math.Round(jsonModel.Time, 2)));
+
+                                    // Remove Points overflow; added to handle maxPoints change
+                                    while (series2.Points.Count - maxPoints >= 1)
+                                    {
+                                        series2.Points.RemoveAt(0);
+                                    }
+
+                                    //var x = new DenseVector(xPts.Count);
+                                    //var y = new DenseVector(x.Count);
+                                    //var dydx = new DenseVector(x.Count);
+                                    //for (int i = 0; i < x.Count; i++)
+                                    //{
+                                    //    x[i] = (4.0 * i) / (x.Count - 1);
+                                    //    y[i] = cs.Interpolate(x[i]);
+                                    //    dydx[i] = cs.Differentiate(x[i]);
+                                    //    Console.WriteLine($"{x[i],12:G5} {y[i],12:G5} {dydx[i],12:G5}");
+                                    //}
                                 }
-                            }
-                        }));
+                                else
+                                {
+                                    series2.Points.AddXY(Math.Round(jsonModel.Time, 2), 0);
+
+
+                                    // Remove Points overflow; added to handle maxPoints change
+                                    while (series2.Points.Count - maxPoints >= 1)
+                                    {
+                                        series2.Points.RemoveAt(0);
+                                    }
+                                }
+
+
+                                //form.chart.ChartAreas[0].RecalculateAxesScale();
+                            }));
+                        }
+                        catch (InvalidAsynchronousStateException e)
+                        {
+                            // Kill the thread
+                            readActive = false;
+                        }
+                        catch (ObjectDisposedException e)
+                        {
+                            // Kill the thread
+                            readActive = false;
+                        }
+
                     }
-                    catch (InvalidAsynchronousStateException e)
-                    {
-                        // Kill the thread
-                        readActive = false;
-                    }
-                    catch (ObjectDisposedException e)
-                    {
-                        // Kill the thread
-                        readActive = false;
-                    }
+                    catch (TimeoutException e) { }
+                    catch (JsonException ex) { }
 
                 }
-                catch (TimeoutException e) { }
-                catch (JsonException ex) { }
             }
 
             serialPort.Close();

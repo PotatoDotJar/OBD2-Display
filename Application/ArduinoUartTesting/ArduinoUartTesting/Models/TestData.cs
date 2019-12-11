@@ -4,27 +4,40 @@ namespace ArduinoUartTesting.Models
 {
     public class TestData
     {
-        public long Time { get; set; }
+        [JsonProperty("time_millis")]
+        public long TimeMilliseconds { get; set; }
 
-        [JsonProperty("r1")]
-        public long Rand1 { get; set; }
+        [JsonProperty("temp")]
+        public int Temp { get; set; }
 
-        [JsonProperty("r2")]
-        public long Rand2 { get; set; }
+        [JsonProperty("light")]
+        public int Light { get; set; }
 
-        [JsonProperty("r3")]
-        public long Rand3 { get; set; }
+        [JsonProperty("aux")]
+        public int Aux { get; set; }
+    }
 
-        [JsonProperty("r4")]
-        public long Rand4 { get; set; }
+    public class SendPacket
+    {
+        [JsonProperty("mode")]
+        public string Mode { get; set; }
 
-        public override string ToString()
+        [JsonProperty("d1")]
+        public int D1 { get; set; }
+
+        [JsonProperty("d2")]
+        public int D2 { get; set; }
+
+        [JsonProperty("d3")]
+        public int D3 { get; set; }
+
+
+        public SendPacket(string mode, int d1, int d2, int d3)
         {
-            return $"[Time]: {Time}\t" +
-                $"[Rand1]: {Rand1}\t" +
-                $"[Rand2]: {Rand2}\t" +
-                $"[Rand3]: {Rand3}\t" +
-                $"[Rand4]: {Rand4}";
+            this.Mode = mode;
+            this.D1 = d1;
+            this.D2 = d2;
+            this.D3 = d3;
         }
     }
 }

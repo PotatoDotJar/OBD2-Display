@@ -1,0 +1,13 @@
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\bin\Debug\netcoreapp3.1\Differentiation.exe
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\obj\Debug\netcoreapp3.1\Differentiation.csprojAssemblyReference.cache
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\obj\Debug\netcoreapp3.1\Differentiation.AssemblyInfoInputs.cache
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\obj\Debug\netcoreapp3.1\Differentiation.AssemblyInfo.cs
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\bin\Debug\netcoreapp3.1\Differentiation.deps.json
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\bin\Debug\netcoreapp3.1\Differentiation.runtimeconfig.json
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\bin\Debug\netcoreapp3.1\Differentiation.runtimeconfig.dev.json
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\bin\Debug\netcoreapp3.1\Differentiation.dll
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\bin\Debug\netcoreapp3.1\Differentiation.pdb
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\bin\Debug\netcoreapp3.1\MathNet.Numerics.dll
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\obj\Debug\netcoreapp3.1\Differentiation.csproj.CopyComplete
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\obj\Debug\netcoreapp3.1\Differentiation.dll
+C:\Users\RJ\gitPersonal\OBD2-Display\Application\Differentiation\obj\Debug\netcoreapp3.1\Differentiation.pdb
