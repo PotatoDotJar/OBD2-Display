@@ -6,9 +6,22 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO.Ports;
 using System.Threading;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace OBD2_Display
 {
+    public class DataPoint
+    {
+        public double x { get; set; }
+        public double y { get; set; }
+
+        public DataPoint(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
     public class SerialHandler
     {
         public bool readActive;
@@ -38,6 +51,8 @@ namespace OBD2_Display
         public void ReadPort()
         {
 
+            DataPointCollection data = new DataPointCollection();
+
             while (readActive)
             {
 
@@ -55,11 +70,10 @@ namespace OBD2_Display
 
                             form.Invoke(new Action(() =>
                             {
+
                                 var series1 = form.chart.Series[0];
-                                var series2 = form.chart.Series[1];
 
-
-                                series1.Points.AddXY(Math.Round(jsonModel.Time, 2), jsonModel.RPM);
+                                series1.Points.AddXY(jsonModel.Time, jsonModel.Light);
 
                                 // Remove Points overflow; added to handle maxPoints change
                                 while (series1.Points.Count - maxPoints >= 1)
@@ -71,61 +85,8 @@ namespace OBD2_Display
                                 form.ptCount.Text = series1.Points.Count.ToString() + " points";
 
 
-                                if (series1.Points.Count >= 2)
-                                {
-                                    // Testing some stuff I learned in calculus 1
-                                    var xPtsList = new List<double>();
-                                    var yPtsList = new List<double>();
-
-                                    var points = series1.Points;
-
-                                    foreach (var pt in points)
-                                    {
-                                        xPtsList.Add(pt.XValue);
-                                        yPtsList.Add(pt.YValues[0]);
-                                    }
-
-                                    // Testing some stuff I learned in calculus 1
-                                    var xPts = new DenseVector(xPtsList.ToArray());
-                                    var yPts = new DenseVector(yPtsList.ToArray());
 
 
-                                    var cs = CubicSpline.InterpolateNatural(xPts, yPts);
-
-
-                                    series2.Points.AddXY(Math.Round(jsonModel.Time, 2), cs.Differentiate(Math.Round(jsonModel.Time, 2)));
-
-                                    // Remove Points overflow; added to handle maxPoints change
-                                    while (series2.Points.Count - maxPoints >= 1)
-                                    {
-                                        series2.Points.RemoveAt(0);
-                                    }
-
-                                    //var x = new DenseVector(xPts.Count);
-                                    //var y = new DenseVector(x.Count);
-                                    //var dydx = new DenseVector(x.Count);
-                                    //for (int i = 0; i < x.Count; i++)
-                                    //{
-                                    //    x[i] = (4.0 * i) / (x.Count - 1);
-                                    //    y[i] = cs.Interpolate(x[i]);
-                                    //    dydx[i] = cs.Differentiate(x[i]);
-                                    //    Console.WriteLine($"{x[i],12:G5} {y[i],12:G5} {dydx[i],12:G5}");
-                                    //}
-                                }
-                                else
-                                {
-                                    series2.Points.AddXY(Math.Round(jsonModel.Time, 2), 0);
-
-
-                                    // Remove Points overflow; added to handle maxPoints change
-                                    while (series2.Points.Count - maxPoints >= 1)
-                                    {
-                                        series2.Points.RemoveAt(0);
-                                    }
-                                }
-
-
-                                //form.chart.ChartAreas[0].RecalculateAxesScale();
                             }));
                         }
                         catch (InvalidAsynchronousStateException e)
