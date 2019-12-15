@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.lblTime = new System.Windows.Forms.Label();
             this.valTime = new System.Windows.Forms.Label();
             this.chartTemp = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -50,66 +50,74 @@
             // lblTime
             // 
             this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(13, 13);
+            this.lblTime.Location = new System.Drawing.Point(20, 20);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(73, 13);
+            this.lblTime.Size = new System.Drawing.Size(108, 20);
             this.lblTime.TabIndex = 0;
             this.lblTime.Text = "Current Time: ";
             // 
             // valTime
             // 
             this.valTime.AutoSize = true;
-            this.valTime.Location = new System.Drawing.Point(93, 13);
+            this.valTime.Location = new System.Drawing.Point(140, 20);
+            this.valTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.valTime.Name = "valTime";
-            this.valTime.Size = new System.Drawing.Size(27, 13);
+            this.valTime.Size = new System.Drawing.Size(35, 20);
             this.valTime.TabIndex = 1;
             this.valTime.Text = "N/A";
             // 
             // chartTemp
             // 
-            chartArea1.AxisX.Title = "Time (ms)";
-            chartArea1.AxisY.Title = "Analog Value";
-            chartArea1.Name = "ChartArea1";
-            this.chartTemp.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chartTemp.Legends.Add(legend1);
-            this.chartTemp.Location = new System.Drawing.Point(12, 306);
+            chartArea3.AxisX.Title = "Time (ms)";
+            chartArea3.AxisY.Title = "Analog Value";
+            chartArea3.Name = "ChartArea1";
+            this.chartTemp.ChartAreas.Add(chartArea3);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.chartTemp.Legends.Add(legend3);
+            this.chartTemp.Location = new System.Drawing.Point(18, 471);
+            this.chartTemp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chartTemp.Name = "chartTemp";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "seriesTemp";
-            this.chartTemp.Series.Add(series1);
-            this.chartTemp.Size = new System.Drawing.Size(776, 244);
+            series3.BorderWidth = 2;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.Red;
+            series3.Legend = "Legend1";
+            series3.Name = "seriesTemp";
+            this.chartTemp.Series.Add(series3);
+            this.chartTemp.Size = new System.Drawing.Size(1164, 375);
             this.chartTemp.TabIndex = 2;
             this.chartTemp.Text = "chart1";
-            title1.Name = "Title1";
-            title1.Text = "Temperature";
-            this.chartTemp.Titles.Add(title1);
+            title3.Name = "Title1";
+            title3.Text = "Temperature";
+            this.chartTemp.Titles.Add(title3);
             // 
             // chartLight
             // 
-            chartArea2.AxisX.Title = "Time (ms)";
-            chartArea2.AxisY.Title = "Analog Value";
-            chartArea2.Name = "ChartArea1";
-            this.chartLight.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chartLight.Legends.Add(legend2);
-            this.chartLight.Location = new System.Drawing.Point(12, 56);
+            chartArea4.AxisX.Title = "Time (ms)";
+            chartArea4.AxisY.Title = "Analog Value";
+            chartArea4.Name = "ChartArea1";
+            this.chartLight.ChartAreas.Add(chartArea4);
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.chartLight.Legends.Add(legend4);
+            this.chartLight.Location = new System.Drawing.Point(18, 86);
+            this.chartLight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chartLight.Name = "chartLight";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "seriesLight";
-            this.chartLight.Series.Add(series2);
-            this.chartLight.Size = new System.Drawing.Size(776, 244);
+            series4.BorderWidth = 2;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Lime;
+            series4.Legend = "Legend1";
+            series4.Name = "seriesLight";
+            this.chartLight.Series.Add(series4);
+            this.chartLight.Size = new System.Drawing.Size(1164, 375);
             this.chartLight.TabIndex = 3;
             this.chartLight.Text = "chart1";
-            title2.Name = "Title1";
-            title2.Text = "Light";
-            this.chartLight.Titles.Add(title2);
+            title4.Name = "Title1";
+            title4.Text = "Light";
+            this.chartLight.Titles.Add(title4);
             // 
             // numMaxPoints
             // 
@@ -118,7 +126,8 @@
             0,
             0,
             0});
-            this.numMaxPoints.Location = new System.Drawing.Point(96, 30);
+            this.numMaxPoints.Location = new System.Drawing.Point(144, 46);
+            this.numMaxPoints.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numMaxPoints.Maximum = new decimal(new int[] {
             20000,
             0,
@@ -130,7 +139,7 @@
             0,
             0});
             this.numMaxPoints.Name = "numMaxPoints";
-            this.numMaxPoints.Size = new System.Drawing.Size(120, 20);
+            this.numMaxPoints.Size = new System.Drawing.Size(180, 26);
             this.numMaxPoints.TabIndex = 4;
             this.numMaxPoints.ThousandsSeparator = true;
             this.numMaxPoints.Value = new decimal(new int[] {
@@ -143,23 +152,25 @@
             // labelMaxpoints
             // 
             this.labelMaxpoints.AutoSize = true;
-            this.labelMaxpoints.Location = new System.Drawing.Point(13, 32);
+            this.labelMaxpoints.Location = new System.Drawing.Point(20, 49);
+            this.labelMaxpoints.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMaxpoints.Name = "labelMaxpoints";
-            this.labelMaxpoints.Size = new System.Drawing.Size(62, 13);
+            this.labelMaxpoints.Size = new System.Drawing.Size(90, 20);
             this.labelMaxpoints.TabIndex = 5;
             this.labelMaxpoints.Text = "Max Points:";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 562);
+            this.ClientSize = new System.Drawing.Size(1200, 865);
             this.Controls.Add(this.labelMaxpoints);
             this.Controls.Add(this.numMaxPoints);
             this.Controls.Add(this.chartLight);
             this.Controls.Add(this.chartTemp);
             this.Controls.Add(this.valTime);
             this.Controls.Add(this.lblTime);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "OBD2 Display - Beta";
             ((System.ComponentModel.ISupportInitialize)(this.chartTemp)).EndInit();

@@ -12,3 +12,17 @@ C:\Users\RJ\Desktop\OBD2-Display\obj\Debug\OBD2-Display.csproj.GenerateResource.
 C:\Users\RJ\Desktop\OBD2-Display\obj\Debug\OBD2-Display.csproj.CopyComplete
 C:\Users\RJ\Desktop\OBD2-Display\obj\Debug\OBD2-Display.exe
 C:\Users\RJ\Desktop\OBD2-Display\obj\Debug\OBD2-Display.pdb
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\obj\Debug\OBD2-Display.csprojAssemblyReference.cache
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\obj\Debug\OBD2_Display.Form1.resources
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\obj\Debug\OBD2_Display.Properties.Resources.resources
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\obj\Debug\OBD2-Display.csproj.GenerateResource.cache
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\bin\Debug\OBD2-Display.exe.config
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\bin\Debug\OBD2-Display.exe
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\bin\Debug\OBD2-Display.pdb
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\bin\Debug\Newtonsoft.Json.dll
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\bin\Debug\System.IO.Ports.dll
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\bin\Debug\Newtonsoft.Json.xml
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\bin\Debug\System.IO.Ports.xml
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\obj\Debug\OBD2-Display.csproj.CopyComplete
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\obj\Debug\OBD2-Display.exe
+C:\Users\RJ\gitPersonal\OBD2-Display\OBD2-Display\obj\Debug\OBD2-Display.pdb
